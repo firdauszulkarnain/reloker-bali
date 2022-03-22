@@ -1,0 +1,101 @@
+img.tengah {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.judul {
+	font-family: "Montserrat", sans-serif;
+	letter-spacing: 0.5px;
+}
+
+.sub-judul {
+	font-family: "Montserrat", sans-serif;
+	letter-spacing: 0.5px;
+}
+
+.aktif {
+	color: #fff !important;
+}
+
+.bg-warna {
+	background-color: #0279e3 !important;
+}
+
+#pagination {
+	margin: 40 40 0;
+}
+
+ul.gp_pagination li a {
+	border: solid 1px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 6px 9px 6px 9px;
+}
+ul.gp_pagination li {
+	padding-bottom: 1px;
+}
+ul.gp_pagination li a:hover,
+ul.gp_pagination li a.current {
+	color: #ffffff;
+	box-shadow: 0px 1px #ededed;
+	/* -moz-box-shadow:0px 1px #EDEDED;
+	-webkit-box-shadow:0px 1px #EDEDED; */
+}
+
+.tombol-login {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0279e3;
+}
+ul.gp_pagination {
+	margin: 4px 0;
+	padding: 0px;
+	height: 100%;
+	overflow: hidden;
+	font: 12px "Tahoma";
+	list-style-type: none;
+}
+ul.gp_pagination li {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 5px;
+}
+ul.gp_pagination li a {
+	color: black;
+	display: block;
+	text-decoration: none;
+	padding: 7px 10px 7px 10px;
+}
+ul.gp_pagination li a img {
+	border: none;
+}
+ul.gp_pagination li a {
+	color: #0279e3;
+	border-color: #2d31fa;
+	background: white;
+}
+ul.gp_pagination li a:hover,
+ul.gp_pagination li a.current {
+	text-shadow: 0px 1px #0279e3;
+	border-color: #0279e3;
+	background: #0279e3;
+	background: -moz-linear-gradient(top, #0279e3 1px, #0279e3 1px, #0279e3);
+	background: -webkit-gradient(
+		linear,
+		0 0,
+		0 100%,
+		color-stop(0.02, #0279e3),
+		color-stop(0.02, #0279e3),
+		color-stop(1, #0279e3)
+	);
+}
+
+@media (max-width: 991px) {
+	.aktif {
+		color: #0279e3 !important;
+	}
+}

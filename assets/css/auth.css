@@ -1,0 +1,34 @@
+h3,
+h1 .small p {
+	font-family: "Montserrat", sans-serif;
+}
+
+.garis {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 2px solid #0179e3;
+	margin: 1em 0;
+	padding: 0;
+}
+.warna {
+	color: #0179e3;
+}
+.garis-auth {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 2px solid black;
+	margin: 1em 0;
+	padding: 0;
+}
+
+img.tengah {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bg-warna {
+	background-color: #0179e3;
+}
