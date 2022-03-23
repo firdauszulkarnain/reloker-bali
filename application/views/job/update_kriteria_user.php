@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="user_keahlian">Keahlian</label>
-                                    <select class="select2" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="3" data-live-search="true">
+                                    <select class="form-control selectpicker" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count > 3" data-prefix="Keahlian Terpilih: ">
                                         <?php foreach ($keahlian as $row) : ?>
                                             <?php if (in_array($row['id_keahlian'], $selected)) : ?>
                                                 <option value="<?= $row['id_keahlian'] ?>" selected="selected"><?= $row['nama_keahlian'] ?></option>
@@ -148,7 +148,7 @@
             type: "post",
             url: url,
             dataType: "html",
-            data: "id_kategori=" + id,
+            data: "id_kat=" + id,
             success: function(msg) {
                 $("#user_keahlian").html(msg).selectpicker('refresh');
                 $("#user_keahlian").selectpicker('refresh');

@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="user_keahlian" class=" <?= (form_error('user_keahlian[]')) ? 'text-danger' : '' ?>">Keahlian<small> (Pilih Kategori Terlebih Dahulu)</small></label>
-                                    <select class="select2" name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="3" data-live-search="true">
+                                    <select class="form-control selectpicker" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count > 3" data-prefix="Keahlian Terpilih: ">
                                         <?php if ($this->session->userdata('kategori_user')) : ?>
                                             <?php foreach ($keahlian as $row) : ?>
                                                 <?php if (in_array($row['id_keahlian'], $selected)) : ?>

@@ -125,7 +125,7 @@ class User extends CI_Controller
 
     public function cari_keahlian()
     {
-        $id_kategori = $this->input->post('id_kategori');
+        $id_kategori = $this->input->post('id_kat');
         $data = $this->db->get_where('keahlian', ['kategori_id' => $id_kategori])->result_array();
         foreach ($data as $item) {
             echo '<option value="' . $item['id_keahlian'] . '">' . $item['nama_keahlian'] . '</option>';

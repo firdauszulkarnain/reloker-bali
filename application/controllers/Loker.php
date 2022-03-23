@@ -21,7 +21,7 @@ class Loker extends CI_Controller
         $config['total_rows'] = $jumlah;
         $config['base_url'] =  base_url() . 'loker/index';
         // Jumlah Item Tampil Per Halaman
-        $config['per_page'] = 5;
+        $config['per_page'] = 7;
         $config['num_links'] = $jumlah;
         // INISIALISASI Pagination
         $this->pagination->initialize($config);
@@ -113,7 +113,7 @@ class Loker extends CI_Controller
         $config['total_rows'] = $jumlah;
         $config['base_url'] =  base_url() . 'loker/search';
         // Jumlah Item Tampil Per Halaman
-        $config['per_page'] = 5;
+        $config['per_page'] = 7;
         $config['num_links'] = $jumlah;
         // INISIALISASI Pagination
         $this->pagination->initialize($config);

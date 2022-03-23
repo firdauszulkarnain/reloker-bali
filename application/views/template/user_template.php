@@ -28,6 +28,7 @@
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <link href="<?= base_url() ?>assets/css/myselect2.css" rel="stylesheet">
+    <script src="<?= base_url() ?>assets/plugins/select2/js/select2.full.min.js"></script>
 </head>
 
 <body>
@@ -136,7 +137,6 @@
     <script src="<?= base_url() ?>assets/job_template/js/main.js"></script>
     <script src="<?= base_url() ?>assets/js/bootstrap-select/bootstrap-select.js"></script>
     <script src="<?= base_url() ?>assets/js/select/defaults-id_ID.min.js"></script>
-    <script src="<?= base_url() ?>assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="<?= base_url() ?>assets/js/job.js"></script>
     <script>

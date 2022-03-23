@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between ">
             <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-            <a class="btn btn-sm btn-success px-4 py-2" href="<?= base_url() ?>alternatif/tambah_alternatif"><i class="fas fa-fw fa-plus"></i> Tambah Data Alternatif</a>
+            <a class="btn btn-sm btn-success px-4 py-2" href="<?= base_url() ?>alternatif/tambah_alternatif"><i class="fas fa-fw fa-plus"></i> Tambah Data Lowongan Kerja</a>
         </div>
     </div>
 </section>
@@ -31,8 +31,8 @@
                                     <td><?= $item['nama_kategori'] ?></td>
                                     <!-- <td><?= $item['lokasi'] ?></td> -->
                                     <td>
-                                        <!-- Button Detail -->
-                                        <a href="<?= base_url() ?>alternatif/detail_alternatif/<?= $item['id_alternatif'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a>
+                                        <!-- Button Detail
+                                        <a href="<?= base_url() ?>alternatif/detail_alternatif/<?= $item['id_alternatif'] ?>" class="btn btn-sm btn-success text-light"><i class="fas fa-fw fa-eye"></i> </a> -->
                                         <!-- Button Edit -->
                                         <a href="<?= base_url() ?>alternatif/update_alternatif/<?= $item['id_alternatif'] ?>" class="btn btn-sm btn-info text-light"><i class="fas fa-fw fa-edit"></i></a>
                                         <!-- Button Hapus -->

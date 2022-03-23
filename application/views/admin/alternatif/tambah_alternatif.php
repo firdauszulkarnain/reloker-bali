@@ -60,9 +60,9 @@
                     <div class="form-group">
                         <label for="gender">Gender</label>
                         <select class="form-control selectpicker <?= (form_error('gender')) ? 'border border-danger' : 'border border-secondary' ?>" id="gender" name="gender" data-size="4" data-live-search="true" title="Gender">
-                            <option value="pria">Pria</option>
-                            <option value="wanita">Wanita</option>
-                            <option value="umum">Umum</option>
+                            <option value="Pria" <?= set_select('gender', 'Pria') ?>>Pria</option>
+                            <option value="Wanita" <?= set_select('gender', 'Wanita') ?>>Wanita</option>
+                            <option value="umum" <?= set_select('gender', 'umum') ?>>Umum</option>
                         </select>
                         <?= form_error('gender', '<small class="form-text text-danger">', '</small>'); ?>
                     </div>
@@ -78,7 +78,7 @@
                         <label for="pendidikan">Minimal Status Pendidikan</label>
                         <select class="form-control text-capitalize selectpicker <?= (form_error('pendidikan')) ? 'border border-danger' : 'border border-secondary' ?>" id="pendidikan" name="pendidikan" data-size="3" data-live-search="true" title="Pilih Status Pendidikan">
                             <?php foreach ($pendidikan as $pd) : ?>
-                                <option value="<?= $pd['nilai_parameter'] ?>" <?= set_select('pendidikan_user', $pd['nilai_parameter']); ?>><?= $pd['nama_parameter'] ?></option>
+                                <option value="<?= $pd['nilai_parameter'] ?>" <?= set_select('pendidikan', $pd['nilai_parameter']); ?>><?= $pd['nama_parameter'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <?= form_error('pendidikan', '<small class="form-text text-danger">', '</small>'); ?>
@@ -87,7 +87,7 @@
                         <label for="pengalaman">Minimal Pengalaman Kerja</label>
                         <select class="form-control text-capitalize selectpicker <?= (form_error('pengalaman')) ? 'border border-danger' : 'border border-secondary' ?>" id="pengalaman" name="pengalaman" data-size="3" data-live-search="true" title="Pilih Status Pengalaman">
                             <?php foreach ($pengalaman as $pg) : ?>
-                                <option value="<?= $pg['nilai_parameter'] ?>" <?= set_select('pengalaman_user', $pg['nilai_parameter']); ?>><?= $pg['nama_parameter'] ?></option>
+                                <option value="<?= $pg['nilai_parameter'] ?>" <?= set_select('pengalaman', $pg['nilai_parameter']); ?>><?= $pg['nama_parameter'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <?= form_error('pengalaman', '<small class="form-text text-danger">', '</small>'); ?>

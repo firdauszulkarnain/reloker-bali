@@ -67,7 +67,7 @@ class Alternatif extends CI_Controller
             'required' => 'Maksimal Usia Tidak Boleh Kosong',
             'numeric' => 'Form Usia Hanya Menerima Inputan Angka!',
             'greater_than_equal_to' => 'Minimal Usia 18 Tahun',
-            'less_than_equal_to' => 'Maksimal Usia 18 Tahun',
+            'less_than_equal_to' => 'Maksimal Usia 35 Tahun',
         ]);
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required', ['required' => 'Minimal Status Pendidikan Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pengalaman', 'Pengalaman', 'required', ['required' => 'Minimal Pengalaman Tidak Boleh Kosong']);
@@ -100,6 +100,7 @@ class Alternatif extends CI_Controller
                 $foto = "Default.png";
             }
             $this->Alternatif_Model->tambah_alternatif($foto);
+            $this->session->unset_userdata('kategori');
             $this->session->set_flashdata('pesan', 'Tambah Alternatif Lowongan Kerja');
             redirect('alternatif');
         }
@@ -165,7 +166,7 @@ class Alternatif extends CI_Controller
             'required' => 'Maksimal Usia Tidak Boleh Kosong',
             'numeric' => 'Form Usia Hanya Menerima Inputan Angka!',
             'greater_than_equal_to' => 'Minimal Usia 18 Tahun',
-            'less_than_equal_to' => 'Maksimal Usia 18 Tahun',
+            'less_than_equal_to' => 'Maksimal Usia 35 Tahun',
         ]);
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required', ['required' => 'Minimal Status Pendidikan Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pengalaman', 'Pengalaman', 'required', ['required' => 'Minimal Pengalaman Tidak Boleh Kosong']);
