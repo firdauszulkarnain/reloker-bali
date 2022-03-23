@@ -30,6 +30,9 @@ body {
 	font-weight: normal;
 	font-style: normal;
 }
+.hide {
+	display: none !important;
+}
 
 /* line 13, ../../Arafath/CL/December/235. Job board/HTML/scss/theme-default.scss */
 .img {
@@ -418,12 +421,19 @@ h3 {
 	.mb-60 {
 		margin-bottom: 30px !important;
 	}
+
+	.hide {
+		display: block !important;
+	}
 }
 
 @media (max-width: 767px) {
 	/* line 299, ../../Arafath/CL/December/235. Job board/HTML/scss/theme-default.scss */
 	.mb-60 {
 		margin-bottom: 20px !important;
+	}
+	.hide {
+		display: block !important;
 	}
 }
 
@@ -1507,6 +1517,10 @@ h3 {
 		font-size: 60px;
 		font-weight: 400;
 		line-height: 74px;
+	}
+
+	.mobile {
+		display: none;
 	}
 }
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='<?= base_url(); ?>/assets/img/icon/favicon.ico' rel='shortcut icon'>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/job_template/img/favicon.png">
     <title><?= $title; ?></title>
 
     <!-- Google Font: Source Montserrat -->

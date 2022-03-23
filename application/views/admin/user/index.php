@@ -27,11 +27,15 @@
                                 <tr class="text-center">
                                     <td></td>
                                     <td><?= $row['email'] ?></td>
-                                    <td><?= $row['username'] ?></td>
-                                    <td class="text-capitalize"><?= $row['gender'] ?></td>
+                                    <td><?= $row['nama_lengkap'] ?></td>
+                                    <td class="text-capitalize">
+                                        <?php if ($row['gender'] == NULL) : ?>
+                                            Umum
+                                        <?php else : ?>
+                                            <?= $row['gender'] ?>
+                                        <?php endif ?>
+                                    </td>
                                     <td>
-                                        <!-- Button Detail -->
-                                        <a href="#" class="btn btn-sm btn-success"><i class="fas fa-fw fa-eye"></i></a>
                                         <!-- Button Hapus -->
                                         <form action="<?= base_url() ?>admin/hapus_user" method="POST" class="d-inline">
                                             <input type="hidden" name="id_kriteria" value="<?= $row['id_user'] ?>">

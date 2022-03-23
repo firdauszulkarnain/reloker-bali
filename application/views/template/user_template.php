@@ -57,6 +57,12 @@
                                                 <li><a href="<?= base_url() ?>auth/login">Rekomendasi</a></li>
                                             <?php endif ?>
                                             <li><a href="<?= base_url() ?>tentang" class="<?= $this->uri->segment(1) == 'tentang' ? "aktif" : "" ?>">Tentang Kami</a></li>
+                                            <?php if ($this->session->userdata('user')) : ?>
+                                                <li class="hide"> <a href="<?= base_url() ?>user/profile" class="<?= $this->uri->segment(2) == 'profile' ? "aktif" : "" ?>">profile</a></li>
+                                                <li class="hide"><a href="<?= base_url() ?>auth/logout">Logout</a></li>
+                                            <?php else : ?>
+                                                <li class="hide"><a href="<?= base_url() ?>auth/login" class="hide">Login</a></li>
+                                            <?php endif ?>
                                         </ul>
                                     </nav>
                                 </div>
