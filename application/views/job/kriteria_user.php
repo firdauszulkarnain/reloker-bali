@@ -34,7 +34,7 @@
                                     <label for="kategori_user">Bidang Kategori Pekerjaan</label>
                                     <select class="form-control text-capitalize selectpicker <?= (form_error('kategori_user')) ? 'border border-danger' : 'border' ?>" id="kategori_user" name="kategori_user" data-size="4" data-live-search="true" title="Pilih Kategori">
                                         <?php foreach ($kategori as $kt) : ?>
-                                            <option value="<?= $kt['id_kategori'] ?>" <?= set_select('kategori', $kt['id_kategori'], $kt['nama_kategori']) ?> class="text-capitalize"><?= $kt['nama_kategori'] ?></option>
+                                            <option value="<?= $kt['id_kategori'] ?>" <?= set_select('kategori_user', $kt['id_kategori'], $kt['nama_kategori']) ?> class="text-capitalize"><?= $kt['nama_kategori'] ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <?= form_error('kategori_user', '<small class="form-text text-danger">', '</small>'); ?>
@@ -70,7 +70,7 @@
                                     <label for="kabupaten">Kabupaten</label>
                                     <select class="form-control selectpicker <?= (form_error('kabupaten')) ? 'border border-danger' : 'border' ?>" id="kabupaten" name="kabupaten" data-size="4" data-live-search="true" title="Pilih Kabupaten">
                                         <?php foreach ($kabupaten as $kb) : ?>
-                                            <option value="<?= $kb['id_kab'] ?>"><?= $kb['nama_kab'] ?></option>
+                                            <option value="<?= $kb['id_kab'] ?>" <?= set_select('kabupaten', $kb['id_kab'], $kb['nama_kab']) ?>><?= $kb['nama_kab'] ?></option>
                                         <?php endforeach ?>
                                     </select>
                                     <?= form_error('kabupaten', '<small class="form-text text-danger">', '</small>'); ?>
@@ -93,10 +93,21 @@
                                     <?= form_error('kecamatan', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <label for="user_keahlian">Keahlian</label>
-                                    <select class="select2" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="3" data-live-search="true">
-                                        <option value=""></option>
+                                    <label for="user_keahlian" class=" <?= (form_error('user_keahlian[]')) ? 'text-danger' : '' ?>">Keahlian<small> (Pilih Kategori Terlebih Dahulu)</small></label>
+                                    <select class="select2" name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="3" data-live-search="true">
+                                        <?php if ($this->session->userdata('kategori_user')) : ?>
+                                            <?php foreach ($keahlian as $row) : ?>
+                                                <?php if (in_array($row['id_keahlian'], $selected)) : ?>
+                                                    <option value="<?= $row['id_keahlian'] ?>" selected="selected"><?= $row['nama_keahlian'] ?></option>
+                                                <?php else : ?>
+                                                    <option value="<?= $row['id_keahlian'] ?>"><?= $row['nama_keahlian'] ?></option>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        <?php else : ?>
+                                            <option value=""></option>
+                                        <?php endif ?>
                                     </select>
+                                    <?= form_error('user_keahlian[]', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <button class="btn btn-md px-3 float-right text-light bg-warna" type="submit">Simpan Kriteria</button>
                             </div>

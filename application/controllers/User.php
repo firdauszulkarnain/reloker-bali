@@ -36,6 +36,13 @@ class User extends CI_Controller
             }
         }
 
+        $kategori = $this->input->post('kategori_user');
+        if ($kategori) {
+            $this->session->set_userdata('kategori_user', $kategori);
+            $data['keahlian'] = $this->db->get_where('keahlian', ['kategori_id' => $kategori])->result_array();
+            $data['selected'] = $this->input->post('user_keahlian');
+        }
+
 
         $this->form_validation->set_rules('kategori_user', 'Kategori', 'trim|required', ['required' => 'Kategori Harus Diisi']);
         $this->form_validation->set_rules('usia_user', 'Usia', 'required|numeric|greater_than_equal_to[18]|less_than_equal_to[35]', [
@@ -48,6 +55,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('pengalaman_user', 'Pengalaman', 'required', ['required' => 'Minimal Pengalaman Tidak Boleh Kosong']);
         $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'trim|required', ['required' => 'Kabupaten Harus Diisi']);
         $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'trim|required', ['required' => 'Kecamatan Harus Diisi']);
+        $this->form_validation->set_rules('user_keahlian[]', 'Keahlian', 'required', ['required' => 'Keahlian Harus Diisi']);
 
         if ($this->form_validation->run() == false) {
             $this->template->load('template/user_template', 'job/kriteria_user', $data);

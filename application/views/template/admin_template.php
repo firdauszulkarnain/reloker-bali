@@ -211,8 +211,7 @@
         $(document).ready(function() {
             $('.select2').select2({
                 width: '100%',
-                // theme: "classic",
-                placeholder: "PIlih Keahlian",
+                placeholder: "Cari Keahlian",
                 allowClear: true
             });
         });
