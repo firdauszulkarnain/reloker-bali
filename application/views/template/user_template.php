@@ -65,7 +65,13 @@
                                 <div class="Appointment">
                                     <div class="d-none d-lg-block">
                                         <?php if ($this->session->userdata('user')) : ?>
-                                            <a class="btn btn-light btn-sm dropdown-toggle px-4" style="color: #0E185F; font-family: 'Roboto';" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false"><i class="far fa-fw fa-user"></i> <?= $user['username'] ?></a>
+                                            <a class="btn btn-light btn-sm dropdown-toggle px-4" style="color: #0E185F; font-family: 'Roboto';" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false"><i class="far fa-fw fa-user"></i>
+                                                <?php if (strlen($user['nama_lengkap']) > 8) : ?>
+                                                    <?= substr($user['nama_lengkap'], 0, 8) . '..'; ?>
+                                                <?php else : ?>
+                                                    <?= $user['nama_lengkap']; ?>
+                                                <?php endif; ?>
+                                            </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <a class="dropdown-item" href="<?= base_url() ?>user/profile">Profile</a>
                                                 <a class="dropdown-item" href="<?= base_url() ?>auth/logout">Logout</a>

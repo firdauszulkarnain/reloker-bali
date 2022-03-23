@@ -51,6 +51,7 @@ class User extends CI_Controller
             'greater_than_equal_to' => 'Minimal Usia 18 Tahun',
             'less_than_equal_to' => 'Maksimal Usia 18 Tahun',
         ]);
+        $this->form_validation->set_rules('gender', 'Gender', 'required|trim', ['required' => 'Gender Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pendidikan_user', 'Pendidikan', 'required', ['required' => 'Minimal Status Pendidikan Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pengalaman_user', 'Pengalaman', 'required', ['required' => 'Minimal Pengalaman Tidak Boleh Kosong']);
         $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'trim|required', ['required' => 'Kabupaten Harus Diisi']);
@@ -107,6 +108,7 @@ class User extends CI_Controller
             'greater_than_equal_to' => 'Minimal Usia 18 Tahun',
             'less_than_equal_to' => 'Maksimal Usia 18 Tahun',
         ]);
+        $this->form_validation->set_rules('gender', 'Gender', 'required|trim', ['required' => 'Gender Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pendidikan_user', 'Pendidikan', 'required', ['required' => 'Minimal Status Pendidikan Tidak Boleh Kosong']);
         $this->form_validation->set_rules('pengalaman_user', 'Pengalaman', 'required', ['required' => 'Minimal Pengalaman Tidak Boleh Kosong']);
         $this->form_validation->set_rules('kabupaten', 'Kabupaten', 'trim|required', ['required' => 'Kabupaten Harus Diisi']);
@@ -146,7 +148,6 @@ class User extends CI_Controller
         $id_user = $data['user']['id_user'];
         $data['kriteriaUser'] = $this->db->get_where('nilai_rekomendasi', ['user_id' => $id_user])->num_rows();
 
-        $this->form_validation->set_rules('gender', 'Gender', 'required', ['required' => 'Gender Tidak Boleh Kosong']);
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required', ['required' => 'Nama Lengkap Tidak Boleh Kosong']);
         if ($this->input->post('old_password') != null) {
             $this->form_validation->set_rules('old_password', 'Password', 'required|trim', ['required' => 'Password Lama Tidak Boleh Kosong']);

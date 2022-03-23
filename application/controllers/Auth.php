@@ -55,20 +55,11 @@ class Auth extends CI_Controller
         $data['title'] = 'REGISTER RELOKER BALI';
         // Form Validation
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim', ['required' => 'Nama Lengkap Tidak Boleh Kosong']);
-        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]|alpha_numeric|min_length[5]|max_length[10]', [
-            'required' => 'Username Tidak Boleh Kosong',
-            'is_unique' => 'Username Sudah Digunakan',
-            'alpha_numeric' => 'Username Hanya Menerima Input dan Angka',
-            'min_length' => 'Panjang Username Minimal 5 Karakter',
-            'max_length' => 'Panjang Username Maksimal 10 Karakter'
-        ]);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'required' => 'Email Tidak Boleh Kosong',
             'valid_email' => "Email Tidak Valid",
             'is_unique' => "Email Telah Digunakan"
         ]);
-        $this->form_validation->set_rules('gender', 'Gender', 'required|trim', ['required' => 'Gender Tidak Boleh Kosong']);
-
         $this->form_validation->set_rules(
             'password1',
             'Password',

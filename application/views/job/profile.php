@@ -23,43 +23,16 @@
                         <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
                         <div class="row">
                             <div class="col-lg-4">
-                                <?php if ($user['gender'] == 'Pria') : ?>
-                                    <img src="<?= base_url() ?>assets/img/profile/profile1.png" class="img-thumbnail bg-light mt-3" width="100%">
-                                <?php else : ?>
-                                    <img src="<?= base_url() ?>assets/img/profile/profile2.png" class="img-thumbnail bg-light mt-3" width="100%">
-                                <?php endif ?>
+                                <img src="<?= base_url() ?>assets/img/profile/profile.png" class="img-thumbnail bg-light mt-3 p-3" width="100%">
                             </div>
                             <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div class="form-group">
-                                            <label for="email">User Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="<?= $user['email'] ?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username" value="<?= $user['username'] ?>" readonly>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="email">User Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email'] ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama_lengkap">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $user['nama_lengkap'] ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <select class="form-control selectpicker <?= (form_error('gender')) ? 'border border-danger' : 'border' ?>" id="gender" name="gender" data-size="4" data-live-search="true" title="Pilih Gender">
-                                        <?php if ($user['gender'] == 'Pria') : ?>
-                                            <option value="Pria" selected>Pria</option>
-                                            <option value="Wanita">Wanita</option>
-                                        <?php else : ?>
-                                            <option value="Pria">Pria</option>
-                                            <option value="Wanita" selected>Wanita</option>
-                                        <?php endif ?>
-                                    </select>
-                                    <?= form_error('gender', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <hr>
                                 <div class="form-group">

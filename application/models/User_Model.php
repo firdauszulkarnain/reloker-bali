@@ -213,6 +213,7 @@ class User_Model extends CI_Model
         $kategori = $this->input->post('kategori_user');
         $data = [
             'kategori_id' => $kategori,
+            "gender" => $this->input->post('gender'),
             'kabupaten_id' => $this->input->post('kabupaten'),
             'kecamatan_id' => $this->input->post('kecamatan')
         ];
@@ -245,6 +246,7 @@ class User_Model extends CI_Model
         $kategori = $this->input->post('kategori_user');
         $data = [
             'kategori_id' => $kategori,
+            "gender" => $this->input->post('gender'),
             'kabupaten_id' => $this->input->post('kabupaten'),
             'kecamatan_id' => $this->input->post('kecamatan')
         ];
@@ -340,7 +342,6 @@ class User_Model extends CI_Model
         $id_user = $this->input->post('id_user');
         $data  = [
             'nama_lengkap' => htmlspecialchars(trim($this->input->post('nama_lengkap'))),
-            'gender' => htmlspecialchars(trim($this->input->post('gender'))),
             'password' => htmlspecialchars(password_hash($this->input->post('password1'), PASSWORD_DEFAULT))
         ];
 

@@ -22,11 +22,7 @@
                     <form action="" method="POST">
                         <div class="row">
                             <div class="col-lg-4">
-                                <?php if ($user['gender'] == 'Pria') : ?>
-                                    <img src="<?= base_url() ?>assets/img/profile/profile1.png" class="img-thumbnail bg-light mt-3" width="100%">
-                                <?php else : ?>
-                                    <img src="<?= base_url() ?>assets/img/profile/profile2.png" class="img-thumbnail bg-light mt-3" width="100%">
-                                <?php endif ?>
+                                <img src="<?= base_url() ?>assets/img/profile/profile.png" class="img-thumbnail bg-light mt-3 p-3" width="100%">
                             </div>
                             <div class="col-lg-8">
                                 <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
@@ -46,8 +42,16 @@
                                         <span class="input-group-text" id="basic-addon2">Tahun</span>
                                     </div>
                                 </div>
-                                <?= form_error('usia_user', '<small class="form-text text-danger mtn-3">', '</small>'); ?>
+                                <?= form_error('usia_user', '<small class="form-text text-danger mt-n3">', '</small>'); ?>
                                 <div class="form-group mt-2">
+                                    <label for="gender">Gender</label>
+                                    <select class="form-control selectpicker <?= (form_error('gender')) ? 'border border-danger' : 'border' ?>" id="gender" name="gender" data-size="4" data-live-search="true" title="Pilih Gender">
+                                        <option value="Pria" <?= set_select('gender', 'Pria') ?>>Pria</option>
+                                        <option value="Wanita" <?= set_select('gender', 'Wanita') ?>>Wanita</option>
+                                    </select>
+                                    <?= form_error('gender', '<small class="form-text text-danger">', '</small>'); ?>
+                                </div>
+                                <div class="form-group">
                                     <label for="pendidikan_user">Status Pendidikan</label>
                                     <select class="form-control text-capitalize selectpicker <?= (form_error('pendidikan_user')) ? 'border border-danger' : 'border' ?>" id="pendidikan_user" name="pendidikan_user" data-size="3" data-live-search="true" title="Pilih Status Pendidikan">
                                         <?php foreach ($pendidikan as $pd) : ?>
