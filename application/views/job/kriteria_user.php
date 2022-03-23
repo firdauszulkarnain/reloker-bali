@@ -107,6 +107,7 @@
                                             <option value=""></option>
                                         <?php endif ?>
                                     </select>
+                                    <small class="text-secondary">*Keahlian Ditampilkan Berdasarkan Kebutuhan Lowongan Kerja Yang Tersedia.</small>
                                     <?= form_error('user_keahlian[]', '<small class="form-text text-danger">', '</small>'); ?>
                                 </div>
                                 <button class="btn btn-md px-3 float-right text-light bg-warna" type="submit">Simpan Kriteria</button>

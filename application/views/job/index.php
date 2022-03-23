@@ -3,7 +3,7 @@
      <div class="single_slider  d-flex align-items-center slider_bg_1">
          <div class="container">
              <div class="row align-items-center">
-                 <div class="col-lg-7 col-md-6">
+                 <div class="col-lg-5">
                      <div class="slider_text">
                          <!-- <h5 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s"><?= $total ?>+ Jobs listed</h5> -->
                          <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">RELOKER BALI</h3>
@@ -17,12 +17,15 @@
                          </div>
                      </div>
                  </div>
+                 <div class="col-lg-7">
+                     <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right ml-5" data-wow-duration="1s" data-wow-delay=".2s">
+                         <img src="<?= base_url() ?>assets/job_template/img/banner/illustration.png" alt="" style="width:100% !important;">
+                     </div>
+                 </div>
              </div>
          </div>
      </div>
-     <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
-         <img src="<?= base_url() ?>assets/job_template/img/banner/illustration.png" alt="" style="width:50% !important;">
-     </div>
+
  </div>
  <!-- slider_area_end -->
 

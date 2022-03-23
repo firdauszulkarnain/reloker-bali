@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text">
-                    <h3>Tentang Kami</h3>
+                    <h3 class="text-center text-uppercase">Tentang Kami</h3>
                 </div>
             </div>
         </div>

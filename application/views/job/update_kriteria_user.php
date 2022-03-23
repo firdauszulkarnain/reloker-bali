@@ -118,6 +118,7 @@
                                             <?php endif ?>
                                         <?php endforeach ?>
                                     </select>
+                                    <small class="text-secondary">*Keahlian Ditampilkan Berdasarkan Kategori & Kebutuhan Lowongan Kerja Yang Tersedia.</small>
                                 </div>
                                 <button class="btn btn-md px-3 float-right text-light bg-warna" type="submit">Simpan Kriteria</button>
                             </div>
