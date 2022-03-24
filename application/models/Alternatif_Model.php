@@ -134,17 +134,21 @@ class Alternatif_Model extends CI_Model
             }
         }
 
-        $beda = count($arrayKhAltr) - $jumlah;
         if ($jumlah == count($arrayKhAltr)) {
             $nilaiAlt = 5;
-        } elseif ($beda == 1) {
-            $nilaiAlt = 4;
-        } elseif ($beda == 2) {
-            $nilaiAlt = 3;
-        } elseif ($beda == 3) {
-            $nilaiAlt = 2;
-        } else {
+        } elseif ($jumlah == 0) {
             $nilaiAlt = 1;
+        } else {
+            $beda = count($arrayKhAltr) - $jumlah;
+            if ($beda == 1) {
+                $nilaiAlt = 4;
+            } elseif ($beda == 2) {
+                $nilaiAlt = 3;
+            } elseif ($beda == 3) {
+                $nilaiAlt = 2;
+            } else {
+                $nilaiAlt = 1;
+            }
         }
 
         return $nilaiAlt;

@@ -14,7 +14,7 @@
 <!--/ bradcam_area  -->
 
 <!-- featured_candidates_area_start  -->
-<div class="featured_candidates_area candidate_page_padding">
+<div class="featured_candidates_area candidate_page_padding mb-n5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -23,7 +23,23 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <img src="<?= base_url() ?>assets/img/profile/profile.png" class="img-thumbnail bg-light mt-3 p-3" width="100%">
+                                <hr>
+                                <h6 id="judulkat">Keahlian Kategori
+                                    <span id="katpilih">
+                                        <?php if ($nama_kat != NULL) : ?>
+                                            <?= $nama_kat ?>
+                                        <?php endif ?>
+                                    </span>:
+                                </h6>
+                                <ul id="terpilih">
+                                    <?php if ($pilihKeahlian != NULL) : ?>
+                                        <?php foreach ($pilihKeahlian as $row) : ?>
+                                            <li>&#8226; <?= $row ?></li>
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+                                </ul>
                             </div>
+
                             <div class="col-lg-8">
                                 <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
                                 <div class="form-group">
@@ -98,7 +114,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="user_keahlian" class=" <?= (form_error('user_keahlian[]')) ? 'text-danger' : '' ?>">Keahlian<small> (Pilih Kategori Terlebih Dahulu)</small></label>
-                                    <select class="form-control selectpicker" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count > 3" data-prefix="Keahlian Terpilih: ">
+                                    <select class="form-control selectpicker border" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count" data-prefix="Keahlian Terpilih: ">
                                         <?php if ($this->session->userdata('kategori_user')) : ?>
                                             <?php foreach ($keahlian as $row) : ?>
                                                 <?php if (in_array($row['id_keahlian'], $selected)) : ?>
@@ -126,23 +142,38 @@
 <!-- featured_candidates_area_end  -->
 
 <script>
+    $('#judulkat').hide();
     $("#kategori_user").change(function() {
         var id = $(this).val();
         var url = "<?= base_url('user/cari_keahlian/') ?>";
+        var name = $("#kategori_user option:selected").text();
         $.ajax({
             type: "post",
             url: url,
             dataType: "html",
-            data: "id_kategori=" + id,
+            data: "id_kat=" + id,
             success: function(msg) {
+                $('#judulkat').show();
                 $("#user_keahlian").html(msg).selectpicker('refresh');
                 $("#user_keahlian").selectpicker('refresh');
+                $("#katpilih").html(name);
             }
         });
     });
     $("#user_keahlian").change(function() {
+        $('#judulkat').show();
+        $('#terpilih').empty()
         var nilai = $(this).val();
-        alert(nilai)
+        var url = "<?= base_url('user/pilih_keahlian/') ?>";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: "html",
+            data: "nilai=" + nilai,
+            success: function(msg) {
+                $("#terpilih").append(msg);
+            }
+        });
     });
     // Kalo Kabupaten Berubah
     $("#kabupaten").change(function() {
@@ -160,5 +191,10 @@
                 $("#kecamatan").selectpicker('refresh');
             }
         });
+
     });
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>

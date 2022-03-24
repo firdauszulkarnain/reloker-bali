@@ -36,10 +36,23 @@ class User extends CI_Controller
             }
         }
 
+        $pilihKeahlian = [];
+        $data['nama_kat'] = [];
+        $data['pilihKeahlian'] = [];
         $kategori = $this->input->post('kategori_user');
         if ($kategori) {
             $this->session->set_userdata('kategori_user', $kategori);
             $data['keahlian'] = $this->db->get_where('keahlian', ['kategori_id' => $kategori])->result_array();
+            $katPilih = $this->db->get_where('kategori', ['id_kategori' => $kategori])->row_array();
+            $namaKat = $katPilih['nama_kategori'];
+
+            $nilai =  $this->input->post('user_keahlian');
+            foreach ($nilai as $item) {
+                $simpan = $this->db->get_where('keahlian', ['id_keahlian' => $item])->row_array();
+                $pilihKeahlian[] = $simpan['nama_keahlian'];
+            }
+            $data['nama_kat'] = $namaKat;
+            $data['pilihKeahlian'] = $pilihKeahlian;
             $data['selected'] = $this->input->post('user_keahlian');
         }
 

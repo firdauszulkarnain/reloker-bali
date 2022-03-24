@@ -14,7 +14,7 @@
 <!--/ bradcam_area  -->
 
 <!-- featured_candidates_area_start  -->
-<div class="featured_candidates_area candidate_page_padding">
+<div class="featured_candidates_area candidate_page_padding mb-n5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="user_keahlian">Keahlian</label>
-                                    <select class="form-control selectpicker" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count > 3" data-prefix="Keahlian Terpilih: ">
+                                    <select class="form-control selectpicker border" required name="user_keahlian[]" id="user_keahlian" multiple="multiple" data-size="7" data-live-search="true" style="min-height: 250px !important;" data-selected-text-format="count" data-prefix="Keahlian Terpilih: ">
                                         <?php foreach ($keahlian as $row) : ?>
                                             <?php if (in_array($row['id_keahlian'], $selected)) : ?>
                                                 <option value="<?= $row['id_keahlian'] ?>" selected="selected"><?= $row['nama_keahlian'] ?></option>
@@ -201,4 +201,8 @@
             }
         });
     });
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>
