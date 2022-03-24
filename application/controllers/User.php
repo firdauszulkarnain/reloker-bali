@@ -69,6 +69,7 @@ class User extends CI_Controller
 
     public function update_kriteria()
     {
+        $this->db->join('kategori kt', 'kt.id_kategori = user.kategori_id');
         $data['user'] = $this->db->get_where('user', ['id_user' => $this->session->userdata('user')])->row_array();
         $data['title'] = 'Kriteria User';
         $id_user = $data['user']['id_user'];
@@ -91,13 +92,16 @@ class User extends CI_Controller
             }
         }
 
-        $keahlianUser = $this->db->get_where('keahlian_user', ['user_id' => $id_user])->result_array();
+        $this->db->join('keahlian kh', 'kh.id_keahlian = ku.keahlian_id');
+        $keahlianUser = $this->db->get_where('keahlian_user ku', ['user_id' => $id_user])->result_array();
         $data['keahlian'] = $this->db->get_where('keahlian', ['kategori_id' => $kategori])->result_array();
         $selected = [];
+        $pilihKeahlian = [];
         foreach ($keahlianUser as $row) {
             $selected[] = (int)$row['keahlian_id'];
+            $pilihKeahlian[] = $row['nama_keahlian'];
         }
-
+        $data['pilihKeahlian'] = $pilihKeahlian;
         $data['selected'] = $selected;
 
 
@@ -138,6 +142,20 @@ class User extends CI_Controller
         $data = $this->db->get_where('kecamatan', ['id_kabupaten' => $id_kabupaten])->result_array();
         foreach ($data as $kecamatan) {
             echo '<option value="' . $kecamatan['id_kecamatan'] . '">' . $kecamatan['nama_kec'] . '</option>';
+        }
+    }
+
+    public function pilih_keahlian()
+    {
+        $nilai = $this->input->post('nilai');
+        $array = explode(",", $nilai);
+        if ($nilai == NULL) {
+            echo '<li>Tidak Ada Keahlian Dipilih! </li>';
+        } else {
+            foreach ($array as $item) {
+                $data = $this->db->get_where('keahlian', ['id_keahlian' => $item])->row_array();
+                echo  '<li> &#8226; ' . $data['nama_keahlian'] . ' </li>';
+            }
         }
     }
 

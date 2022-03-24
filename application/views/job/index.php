@@ -67,7 +67,7 @@
                                  </div>
                              </div>
                              <div class="jobs_right">
-                                 <div class="apply_now float-right">
+                                 <div class="apply_now">
                                      <!-- <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a> -->
                                      <a href="<?= base_url() ?>/loker/detail_loker/<?= $item['id_alternatif'] ?>" class="btn btn-sm bg-warna text-light"><i class="fas fa-fw fa-eye"></i></a>
                                  </div>

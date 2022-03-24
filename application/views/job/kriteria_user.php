@@ -140,7 +140,10 @@
             }
         });
     });
-
+    $("#user_keahlian").change(function() {
+        var nilai = $(this).val();
+        alert(nilai)
+    });
     // Kalo Kabupaten Berubah
     $("#kabupaten").change(function() {
         // Ambil id Kab + cari kecamatan yang ada

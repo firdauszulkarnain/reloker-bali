@@ -23,6 +23,13 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <img src="<?= base_url() ?>assets/img/profile/profile.png" class="img-thumbnail bg-light mt-3 p-3" width="100%">
+                                <hr>
+                                <h6>Keahlian Kategori <span id="katpilih"><?= $user['nama_kategori'] ?></span>:</h6>
+                                <ul id="terpilih">
+                                    <?php foreach ($pilihKeahlian as $row) : ?>
+                                        <li>&#8226; <?= $row ?></li>
+                                    <?php endforeach ?>
+                                </ul>
                             </div>
                             <div class="col-lg-8">
                                 <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
@@ -129,6 +136,7 @@
                                     </select>
                                     <small class="text-secondary">*Keahlian Ditampilkan Berdasarkan Kategori & Kebutuhan Lowongan Kerja Yang Tersedia.</small>
                                 </div>
+
                                 <button class="btn btn-md px-3 float-right text-light bg-warna" type="submit">Simpan Kriteria</button>
                             </div>
                         </div>
@@ -142,7 +150,9 @@
 
 <script>
     $("#kategori_user").change(function() {
+        $('#terpilih').empty()
         var id = $(this).val();
+        var name = $("#kategori_user option:selected").text();
         var url = "<?= base_url('user/cari_keahlian/') ?>";
         $.ajax({
             type: "post",
@@ -152,8 +162,26 @@
             success: function(msg) {
                 $("#user_keahlian").html(msg).selectpicker('refresh');
                 $("#user_keahlian").selectpicker('refresh');
+                $("#katpilih").html(name);
             }
         });
+
+    });
+
+    $("#user_keahlian").change(function() {
+        $('#terpilih').empty()
+        var nilai = $(this).val();
+        var url = "<?= base_url('user/pilih_keahlian/') ?>";
+        $.ajax({
+            type: "post",
+            url: url,
+            dataType: "html",
+            data: "nilai=" + nilai,
+            success: function(msg) {
+                $("#terpilih").append(msg);
+            }
+        });
+
     });
 
     // Kalo Kabupaten Berubah
