@@ -175,7 +175,7 @@ class Rekomendasi_Model extends CI_Model
             $getAlt = $this->db->get('alternatif alt')->row_array();
             $result[] = $getAlt;
 
-            if (count($result) == 2) {
+            if (count($result) == 3) {
                 break;
             }
         }
