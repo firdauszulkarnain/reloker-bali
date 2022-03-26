@@ -154,16 +154,67 @@ class Alternatif_Model extends CI_Model
         return $nilaiAlt;
     }
 
-    public function bandingLokasi($id_alternatif, $id_user)
+    // public function bandingLokasi($id_alternatif, $id_user)
+    // {
+    //     $LokUser = $this->db->get_where('user', ['id_user' => $id_user])->row_array();
+    //     $LokAlt = $this->db->get_where('alternatif', ['id_alternatif' => $id_alternatif])->row_array();
+    //     if ($LokUser['kecamatan_id'] == $LokAlt['kecamatan_id']) {
+    //         $nilaiAlt = 5;
+    //     } elseif ($LokUser['kecamatan_id'] != $LokAlt['kecamatan_id'] && $LokUser['kabupaten_id'] == $LokAlt['kabupaten_id']) {
+    //         $nilaiAlt = 3;
+    //     } else {
+    //         $nilaiAlt = 1;
+    //     }
+
+    //     return $nilaiAlt;
+    // }
+
+    public function bandingLokasi($id_user, $id_alternatif)
     {
         $LokUser = $this->db->get_where('user', ['id_user' => $id_user])->row_array();
         $LokAlt = $this->db->get_where('alternatif', ['id_alternatif' => $id_alternatif])->row_array();
-        if ($LokUser['kecamatan_id'] == $LokAlt['kecamatan_id']) {
+
+        $kecAlt = $LokAlt['kecamatan_id'];
+        $kecUser = $LokUser['kecamatan_id'];
+
+        if ($kecAlt == $kecUser) {
             $nilaiAlt = 5;
-        } elseif ($LokUser['kecamatan_id'] != $LokAlt['kecamatan_id'] && $LokUser['kabupaten_id'] == $LokAlt['kabupaten_id']) {
-            $nilaiAlt = 3;
         } else {
-            $nilaiAlt = 1;
+            $this->db->where('asal_kec', $kecUser);
+            $this->db->where('tujuan_kec', $kecAlt);
+            $data = $this->db->get('jarak_kecamatan')->row_array();
+
+
+            if ($data == NULL) {
+                $this->db->where('asal_kec', $kecAlt);
+                $this->db->where('tujuan_kec', $kecUser);
+                $data = $this->db->get('jarak_kecamatan')->row_array();
+                $jarak = $data['jarak'];
+            } else {
+                $jarak = $data['jarak'];
+            }
+
+            if ($jarak > 0 && $jarak <= 5) {
+                $nilaiAlt = 10;
+            } elseif ($jarak > 5 && $jarak <= 10) {
+                $nilaiAlt = 9;
+            } elseif ($jarak > 10 && $jarak <= 15) {
+                $nilaiAlt = 8;
+            } elseif ($jarak > 15 && $jarak <= 20) {
+                $nilaiAlt = 7;
+            } elseif ($jarak > 20 && $jarak <= 30) {
+                $nilaiAlt = 6;
+            } elseif ($jarak > 30 && $jarak <= 35) {
+                $nilaiAlt = 5;
+            } elseif ($jarak > 35 && $jarak <= 40) {
+                $nilaiAlt = 4;
+            } elseif ($jarak > 40 && $jarak <= 45) {
+                $nilaiAlt = 3;
+            } elseif ($jarak > 45 && $jarak <= 50) {
+                $nilaiAlt = 2;
+            } else {
+                $nilaiAlt = 1;
+            }
         }
 
         return $nilaiAlt;
