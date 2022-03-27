@@ -83,18 +83,11 @@ class Rekomendasi_Model extends CI_Model
         foreach ($kriteria as $kt) :
 
             $id_kriteria = $kt['id_kriteria'];
-            $tipe_kriteria = $kt['jenis_kriteria'];
-
             $nilai_max = max($matriks_Y[$id_kriteria]);
             $nilai_min = min($matriks_Y[$id_kriteria]);
 
-            if ($tipe_kriteria == 'benefit') :
-                $s_i_p = $nilai_max;
-                $s_i_n = $nilai_min;
-            elseif ($tipe_kriteria == 'cost') :
-                $s_i_p = $nilai_min;
-                $s_i_n = $nilai_max;
-            endif;
+            $s_i_p = $nilai_max;
+            $s_i_n = $nilai_min;
 
             $solusi_ideal_positif[$id_kriteria] = $s_i_p;
             $solusi_ideal_negatif[$id_kriteria] = $s_i_n;
@@ -157,11 +150,9 @@ class Rekomendasi_Model extends CI_Model
         });
         $preserved = array_reverse($sorted_ranks);
 
-        return $preserved;
-
-
         // var_dump($preserved);
         // die;
+        return $preserved;
     }
 
     public function ambil_rekomendasi($preserved)
@@ -175,9 +166,9 @@ class Rekomendasi_Model extends CI_Model
             $getAlt = $this->db->get('alternatif alt')->row_array();
             $result[] = $getAlt;
 
-            if (count($result) == 3) {
-                break;
-            }
+            // if (count($result) == 3) {
+            //     break;
+            // }
         }
 
         return $result;
