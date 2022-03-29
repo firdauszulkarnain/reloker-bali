@@ -324,8 +324,16 @@ class User_Model extends CI_Model
 
     public function updateNilaiRekomendasi($id_user, $kategori)
     {
+        $this->db->join('alternatif alt', 'alt.id_alternatif = nr.alternatif_id');
+        $isi = $this->db->get_where('nilai_rekomendasi nr', ['user_id' => $id_user])->row_array();
+        $katLama = $isi[0]['kategori_id'];
+        if ($katLama != $kategori) {
+            $this->db->where('user_id', $id_user);
+            $this->db->delete('nilai_rekomendasi');
+        }
         $kriteria = $this->db->get('kriteria')->result_array();
         $alternatif = $this->db->get_where('alternatif', ['kategori_id' => $kategori])->result_array();
+
         foreach ($kriteria as $row) {
 
             $idKriteria = $row['id_kriteria'];
@@ -345,14 +353,26 @@ class User_Model extends CI_Model
                 else {
                     $nilaiAlt = $this->bandingAlternatif($id_user, $alt['id_alternatif'], $idKriteria);
                 }
-                $nilaiRekomendasi = [
-                    'nilai_alternatif' => $nilaiAlt,
-                ];
 
-                $this->db->where('alternatif_id', $alt['id_alternatif']);
-                $this->db->where('kriteria_id', $idKriteria);
-                $this->db->where('user_id', $id_user);
-                $this->db->update('nilai_rekomendasi', $nilaiRekomendasi);
+                if ($katLama == $kategori) {
+                    $nilaiRekomendasi = [
+                        'nilai_alternatif' => $nilaiAlt,
+                    ];
+
+                    $this->db->where('alternatif_id', $alt['id_alternatif']);
+                    $this->db->where('kriteria_id', $idKriteria);
+                    $this->db->where('user_id', $id_user);
+                    $this->db->update('nilai_rekomendasi', $nilaiRekomendasi);
+                } else {
+                    $nilaiRekomendasi = [
+                        'alternatif_id' => $alt['id_alternatif'],
+                        'kriteria_id' => $idKriteria,
+                        'nilai_alternatif' => $nilaiAlt,
+                        'user_id' => $id_user
+                    ];
+
+                    $this->db->insert('nilai_rekomendasi', $nilaiRekomendasi);
+                }
             }
         }
     }

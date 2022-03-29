@@ -86,7 +86,13 @@
                                 </div>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
-                        <?php endif ?>
+                        <?php else : ?>
+                            <div class="col-lg-12 mt-5">
+                                <div class="alert text-center" role="alert" style="background-color: #DA1212; color: white;">
+                                    <strong>Tidak Ada Rekomendasi Loker</strong>, Silahkan Isi Kriteria Terlebih Dahulu
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <hr>
                 </div>
