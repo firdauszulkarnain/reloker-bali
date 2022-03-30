@@ -325,7 +325,7 @@ class User_Model extends CI_Model
     public function updateNilaiRekomendasi($id_user, $kategori)
     {
         $this->db->join('alternatif alt', 'alt.id_alternatif = nr.alternatif_id');
-        $isi = $this->db->get_where('nilai_rekomendasi nr', ['user_id' => $id_user])->row_array();
+        $isi = $this->db->get_where('nilai_rekomendasi nr', ['user_id' => $id_user])->result_array();
         $katLama = $isi[0]['kategori_id'];
         if ($katLama != $kategori) {
             $this->db->where('user_id', $id_user);

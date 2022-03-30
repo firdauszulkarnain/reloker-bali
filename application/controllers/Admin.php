@@ -7,12 +7,15 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('user')) {
+            redirect('/');
+        }
         if (!$this->session->userdata('admin')) {
             redirect('auth_admin/login');
         }
     }
 
-    public function index()
+    public function index($param)
     {
         redirect('admin/dashboard');
     }

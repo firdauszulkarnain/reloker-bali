@@ -36,8 +36,6 @@ class Rekomendasi_Model extends CI_Model
             }
         }
 
-        // var_dump($matriks_X);
-        // die;
 
         $matriks_R = [];
 
@@ -56,8 +54,7 @@ class Rekomendasi_Model extends CI_Model
 
         endforeach;
 
-        // var_dump($matriks_R);
-        // die;
+
         $this->db->select_sum('bobot_kriteria');
         $this->db->from('kriteria');
         $sumBobot = $this->db->get()->row_array();
@@ -75,8 +72,7 @@ class Rekomendasi_Model extends CI_Model
             endforeach;
         endforeach;
 
-        // var_dump($matriks_Y);
-        // die;
+
         // SOLUSI IDEAL POSITIF - NEGATIF
         $solusi_ideal_positif = array();
         $solusi_ideal_negatif = array();
@@ -93,8 +89,6 @@ class Rekomendasi_Model extends CI_Model
             $solusi_ideal_negatif[$id_kriteria] = $s_i_n;
 
         endforeach;
-        // var_dump($solusi_ideal_negatif);
-        // die;
 
         $jarak_ideal_positif = array();
         $jarak_ideal_negatif = array();
@@ -123,8 +117,7 @@ class Rekomendasi_Model extends CI_Model
             $jarak_ideal_negatif[$idAlternatif] = $akar_kuadrat_jin;
 
         endforeach;
-        // var_dump($jarak_ideal_positif);
-        // die;
+
 
         // URUTKAN
         $ranks = array();
@@ -140,8 +133,7 @@ class Rekomendasi_Model extends CI_Model
 
         endforeach;
 
-        // var_dump($ranks);
-        // die;
+
 
         $sorted_ranks = $ranks;
 
