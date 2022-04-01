@@ -10,7 +10,14 @@
 </section>
 
 <section class="content">
-
+    <?php if ($this->session->flashdata('error')) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= $this->session->flashdata('error')  ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endif ?>
     <div class="row d-flex justify-content-center">
         <div class="col-lg-12">
             <div class="card mb-5">
@@ -91,7 +98,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="kategori">Kategori</label>
-                        <select class="form-control text-capitalize selectpicker <?= (form_error('kategori')) ? 'border border-danger' : 'border border-secondary' ?>" id="kategori" name="kategori" data-size="4" data-live-search="true" title="Pilih Kategori">
+                        <select class="form-control text-capitalize selectpicker <?= (form_error('kategori')) ? 'border border-danger' : 'border border-secondary' ?>" id="kategori" name="kategori" data-size="4" data-live-search="true" title="Pilih Kategori" required oninvalid="this.setCustomValidity('Kategori Tidak Boleh Kosong')" oninput="setCustomValidity('')">
                             <?php foreach ($kategori as $kt) : ?>
                                 <option value="<?= $kt['id_kategori'] ?>" <?= set_select('kategori', $kt['id_kategori'], $kt['nama_kategori']) ?> class="text-capitalize"><?= $kt['nama_kategori'] ?></option>
                             <?php endforeach ?>

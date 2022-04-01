@@ -13,9 +13,9 @@ class Admin_Model extends CI_Model
         return $this->db->get('kriteria')->num_rows();
     }
 
-    public function hitungParameter()
+    public function hitungKeahlian()
     {
-        return $this->db->get('parameter')->num_rows();
+        return $this->db->get('keahlian')->num_rows();
     }
 
     public function hitungUser()

@@ -15,7 +15,7 @@ class Admin extends CI_Controller
         }
     }
 
-    public function index($param)
+    public function index()
     {
         redirect('admin/dashboard');
     }
@@ -26,7 +26,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['alternatif'] = $this->Admin_Model->hitungAlternatif();
         $data['kriteria'] = $this->Admin_Model->hitungKriteria();
-        $data['parameter'] = $this->Admin_Model->hitungParameter();
+        $data['keahlian'] = $this->Admin_Model->hitungKeahlian();
         $data['user'] = $this->Admin_Model->hitungUser();
         $this->template->load('template/admin_template', 'admin/dashboard', $data);
     }

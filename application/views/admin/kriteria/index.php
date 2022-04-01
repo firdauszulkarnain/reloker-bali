@@ -18,7 +18,7 @@
                             <tr class="text-center">
                                 <th width="5%">No</th>
                                 <th width="35%">Nama Kriteria</th>
-                                <th>Alias</th>
+                                <!-- <th>Alias</th> -->
                                 <th width="15%">Jenis Kriteria</th>
                                 <th width="12%">Bobot Kriteria</th>
                                 <th width="20%">Action</th>
@@ -29,7 +29,6 @@
                                 <tr class="text-center">
                                     <td></td>
                                     <td class="text-capitalize"><?= $item['nama_kriteria'] ?></td>
-                                    <td><?= $item['alias'] ?></td>
                                     <td class="text-capitalize"><?= $item['jenis_kriteria'] ?></td>
                                     <td><?= $item['bobot_kriteria'] ?></td>
                                     <td>

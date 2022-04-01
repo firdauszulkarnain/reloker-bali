@@ -11,7 +11,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-briefcase"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Alternatif <strong>LOKER BALI</strong></span>
+                    <span class="info-box-text">Lowongan Kerja</span>
                     <span class="info-box-number">
                         <?php if ($alternatif >= 10) : ?>
                             <?= $alternatif ?>
@@ -26,7 +26,7 @@
             <div class="info-box mb-3">
                 <span class="info-box-icon bg-primary elevation-1"><i class="far fa-fw fa-list-alt"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Jumlah Kriteria</span>
+                    <span class="info-box-text">Kriteria Rekomendasi</span>
                     <span class="info-box-number">
                         <?php if ($kriteria >= 10) : ?>
                             <?= $kriteria ?>
@@ -44,12 +44,12 @@
             <div class="info-box mb-3">
                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-clipboard-list"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Parameter</span>
+                    <span class="info-box-text">Keahlian Lowongan</span>
                     <span class="info-box-number">
-                        <?php if ($parameter >= 10) : ?>
-                            <?= $parameter ?>
+                        <?php if ($keahlian >= 10) : ?>
+                            <?= $keahlian ?>
                         <?php else : ?>
-                            0<?= $parameter  ?>
+                            0<?= $keahlian  ?>
                         <?php endif ?>
                     </span>
                 </div>

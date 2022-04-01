@@ -23,8 +23,19 @@ class Keahlian extends CI_Controller
     public function tambah_keahlian()
     {
         $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
-        $this->Data_Model->tambah_keahlian();
-        $this->session->set_flashdata('pesan', 'Tambah Keahlian');
+
+        $kategori = $this->input->post('kategori');
+        $keahlian = $this->input->post('nama_keahlian');
+        $this->db->where('kategori_id', $kategori);
+        $this->db->where('nama_keahlian', $keahlian);
+        $cek = $this->db->get('keahlian')->row_array();
+        if ($cek == NULL) {
+            $this->Data_Model->tambah_keahlian();
+            $this->session->set_flashdata('pesan', 'Tambah Keahlian');
+        } else {
+            $string = 'Keahlian ' . $keahlian . ' Dalam Kategori ' . $kategori . ' Sudah Tersedia';
+            $this->session->set_flashdata('error', $string);
+        }
         redirect('keahlian');
     }
 
