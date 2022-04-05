@@ -14,6 +14,7 @@ class Rekomendasi_Model extends CI_Model
         $kriteria = $this->db->get('kriteria')->result_array();
         $alternatif = $this->db->get_where('alternatif', ['kategori_id' => $kategori])->result_array();
 
+        // Normalisasi Matriks X (SAW)
         $matriks_X = [];
         $list_kriteria = array();
         foreach ($kriteria as $kt) {
@@ -32,6 +33,7 @@ class Rekomendasi_Model extends CI_Model
         }
 
 
+        // Normalisasi Matriks Terbobot Y
         $matriks_R = [];
 
         foreach ($matriks_X as $id_kriteria => $nilai_alternatif) :
@@ -85,6 +87,8 @@ class Rekomendasi_Model extends CI_Model
 
         endforeach;
 
+
+        // Mencari Jarak Solusi Ideal Positif dan Negatif
         $jarak_ideal_positif = array();
         $jarak_ideal_negatif = array();
         foreach ($alternatif as $alt) :
@@ -142,6 +146,7 @@ class Rekomendasi_Model extends CI_Model
         return $preserved;
     }
 
+    // Ambil Informasi Lowongan Kerja
     public function ambil_rekomendasi($preserved)
     {
         $result = [];
