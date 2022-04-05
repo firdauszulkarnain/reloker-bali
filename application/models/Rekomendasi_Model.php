@@ -27,12 +27,7 @@ class Rekomendasi_Model extends CI_Model
                 $this->db->where('alternatif_id', $idAlternatif);
                 $this->db->where('kriteria_id', $idKriteria);
                 $tmp = $this->db->get_where('nilai_rekomendasi', ['user_id' => $id_user])->row_array();
-
-                if ($nilai_alternatif = $tmp) {
-                    $matriks_X[$idKriteria][$idAlternatif] = $tmp['nilai_alternatif'];
-                } else {
-                    $matriks_X[$idKriteria][$idAlternatif] = 0;
-                }
+                $matriks_X[$idKriteria][$idAlternatif] = $tmp['nilai_alternatif'];
             }
         }
 
