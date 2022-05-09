@@ -38,4 +38,24 @@ class Admin_Model extends CI_Model
     {
         return $this->db->get('user')->result_array();
     }
+
+    public function getDetailUser($id_user)
+    {
+        $this->db->join('kategori kt', 'kt.id_kategori = us.kategori_id');
+        $this->db->join('kabupaten kb', 'kb.id_kab = us.kabupaten_id');
+        $this->db->join('kecamatan kc', 'kc.id_kecamatan = us.kecamatan_id');
+        return $this->db->get_where('user us', ['us.id_user' => $id_user])->row_array();
+    }
+
+    public function getKriteriaUser($id_user)
+    {
+        $this->db->join('kriteria kt', 'kt.id_kriteria = nu.kriteria_id');
+        return $this->db->get_where('nilai_user nu', ['nu.user_id' => $id_user])->result_array();
+    }
+
+    public function getDetailKeahlianUser($id_user)
+    {
+        $this->db->join('keahlian kh', 'kh.id_keahlian = ku.keahlian_id');
+        return $this->db->get_where('keahlian_user ku', ['user_id' => $id_user])->result_array();
+    }
 }

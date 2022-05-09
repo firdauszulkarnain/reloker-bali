@@ -40,9 +40,10 @@
                                         <form action="<?= base_url() ?>admin/hapus_user" method="POST" class="d-inline">
                                             <input type="hidden" name="id_kriteria" value="<?= $row['id_user'] ?>">
                                             <button class="btn btn-sm btn-danger text-light tombol-hapus" type="submit">
-                                                <i class="fas fa-trash-alt"></i>
+                                                <i class="fas fa-fw fa-trash-alt"></i>
                                             </button>
                                         </form>
+                                        <a href="<?= base_url() ?>admin/detail_user/<?= $row['id_user'] ?>" class="btn btn-sm btn-warning text-light"><i class="fas fa-fw fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

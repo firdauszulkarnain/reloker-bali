@@ -87,4 +87,24 @@ class Admin extends CI_Controller
             }
         }
     }
+
+    public function detail_user($id_user)
+    {
+        $data['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('admin')])->row_array();
+        $data['title'] = 'Informasi User';
+        $data['detail'] = $this->Admin_Model->getDetailUser($id_user);
+        $data['keahlian'] = $this->Admin_Model->getDetailKeahlianUser($id_user);
+        $kriteria = $this->Admin_Model->getKriteriaUser($id_user);
+        foreach ($kriteria as $item) {
+            if ($item['nama_kriteria'] == 'Pendidikan') {
+                $data['userPend'] = $item['parameter'];
+            } elseif ($item['nama_kriteria'] == 'Pengalaman') {
+                $data['userPeng'] = $item['parameter'];
+            } elseif ($item['nama_kriteria'] == 'Usia') {
+                $data['userUsia'] = $item['parameter'];
+            }
+        }
+
+        $this->template->load('template/admin_template', 'admin/user/detail_user', $data);
+    }
 }
