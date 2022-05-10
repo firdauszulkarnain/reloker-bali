@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/job_template/css/gijgo.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/job_template/css/animate.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/job_template/css/slicknav.css">
+    <!-- TRIX EDITOR -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/trix.css">
+    <script type="text/javascript" src="<?= base_url() ?>assets/js/trix.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-select/bootstrap-select.css">
@@ -57,6 +60,7 @@
                                             <?php else : ?>
                                                 <li><a href="<?= base_url() ?>auth/login">Rekomendasi</a></li>
                                             <?php endif ?>
+                                            <li><a href="<?= base_url() ?>loker/post_loker" class="<?= $this->uri->segment(2) == 'post_loker' ? "aktif" : "" ?>">Post Lowongan</a></li>
                                             <li><a href="<?= base_url() ?>tentang" class="<?= $this->uri->segment(1) == 'tentang' ? "aktif" : "" ?>">Tentang Kami</a></li>
                                             <?php if ($this->session->userdata('user')) : ?>
                                                 <li class="hide"> <a href="<?= base_url() ?>user/profile" class="<?= $this->uri->segment(2) == 'profile' ? "aktif" : "" ?>">profile</a></li>
@@ -138,6 +142,8 @@
     <script src="<?= base_url() ?>assets/js/bootstrap-select/bootstrap-select.js"></script>
     <script src="<?= base_url() ?>assets/js/select/defaults-id_ID.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- FileStyle -->
+    <script type="text/javascript" src="<?= base_url() ?>assets/js/bootstrap-filestyle/bootstrap-filestyle.min.js"> </script>
     <script src="<?= base_url() ?>assets/js/job.js"></script>
     <script>
         $(document).ready(function() {

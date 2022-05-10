@@ -8,5 +8,13 @@ $(document).ready(function() {
   if (flashData) {
     toastr.success(flashData);
   }
-
+  
+  $(".input-file").filestyle({
+    'text' :'Choose File',
+    'btnClass' :'btn-light border border-secondary px-4',
+    'size' :'nr',
+    'input' :true,
+    'placeholder':'',
+    'buttonBefore' :true,
+});
 });

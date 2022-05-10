@@ -1,3 +1,6 @@
+trix-toolbar [data-trix-button-group="file-tools"] {
+	display: none;
+}
 img.tengah {
 	display: block;
 	margin-left: auto;
