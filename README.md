@@ -8,12 +8,5 @@ Aplikasi untuk mendapatkan Rekomendasi Lowongan Kerja Menggunakan Metode SAW dan
 - [Datatables Client Side](https://datatables.net/)
 - [SweetAlert](https://sweetalert2.github.io/)
 
-## Langkah Installasi
-- Download & Install [XAMPP](https://www.apachefriends.org/download.html)
-- Letakan Folder di c:/xampp/htdocs
-- Rename Folder Menjadi 'reloker-bali'
-- Jalankan XAMPP dan Start pada module Apache & Mysql
-- Buat Database dengan nama 'reloker_bali' di localhost/phpmyadmin
-- Import file reloker_bali.sql dalam folder reloker-bali ke database yang sudah dibuat
-- jalankan localhost/reloker-bali
-
+## DOKUMENTASI
+![1](https://user-images.githubusercontent.com/67721580/235333703-b8c38408-8080-4269-868a-be242560dc00.png)
