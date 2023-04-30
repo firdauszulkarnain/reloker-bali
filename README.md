@@ -9,4 +9,7 @@ Aplikasi untuk mendapatkan Rekomendasi Lowongan Kerja Menggunakan Metode SAW dan
 - [SweetAlert](https://sweetalert2.github.io/)
 
 ## DOKUMENTASI
-![1](https://user-images.githubusercontent.com/67721580/235333703-b8c38408-8080-4269-868a-be242560dc00.png)
+![5](https://user-images.githubusercontent.com/67721580/235333820-7cc736a2-7fa0-4e10-8203-4dcd26aae121.png)
+![7](https://user-images.githubusercontent.com/67721580/235333858-3b238f04-ec29-4238-82a0-bdc28ad4a4c0.png)
+![2](https://user-images.githubusercontent.com/67721580/235333850-9e44a222-8592-40fd-bc5e-21d4966fe232.png)
+
