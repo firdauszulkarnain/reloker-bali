@@ -4,7 +4,7 @@ Aplikasi untuk mendapatkan Rekomendasi Lowongan Kerja Menggunakan Metode SAW dan
 ## Teknologi
 - [CodeIgniter 3](https://codeigniter.com/)
 - [Job Template](https://themewagon.com/themes/free-bootstrap-4-html5-job-board-website-template-job-board/)
-- [AdminLTE 3 Template](https://themewagon.com/themes/free-bootstrap-4-html5-job-board-website-template-job-board/](https://adminlte.io/themes/v3/)
+- [Admin LTE 3 Template](https://adminlte.io/themes/v3/)
 - [Datatables Client Side](https://datatables.net/)
 - [SweetAlert](https://sweetalert2.github.io/)
 
